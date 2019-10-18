@@ -8,7 +8,6 @@ class ResumeForm extends React.Component {
     return (
       <div className="form">
               <Container>
-        <Form>
           <FormGroup>
             <Label for="name">Name</Label>
             <Input
@@ -67,7 +66,6 @@ class ResumeForm extends React.Component {
           </FormGroup>
           <EducationFom />
           <ExpForm />
-        </Form>
       </Container>
       </div>
     );

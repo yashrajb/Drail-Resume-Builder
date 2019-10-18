@@ -18,7 +18,7 @@ const Header = props => {
   return (
     <div>
       <Navbar expand="md">
-        <NavbarBrand href="/"><span class="logo">Drail</span> Resume Builder</NavbarBrand>
+        <NavbarBrand href="/"><span className="logo">Drail</span> Resume Builder</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
