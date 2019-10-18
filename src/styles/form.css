@@ -1,0 +1,12 @@
+.form .container {
+padding:20px;
+}
+
+.form input,.form textarea,.form button{
+border:1px solid grey;
+border-radius:0px;
+}
+
+.form input[type="file"] {
+border:0px;
+}

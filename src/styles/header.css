@@ -1,0 +1,13 @@
+.logo {
+ color:white;
+ background:black;
+ padding:10px;
+}
+
+.navbar {
+   box-shadow:3px 3px 3px lightgrey;
+}
+
+.navbar-brand,.navbar-expand-md .navbar-nav .nav-link,.navbar-brand:hover {
+color:black;
+}
