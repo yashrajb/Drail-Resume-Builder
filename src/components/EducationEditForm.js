@@ -6,8 +6,7 @@ import {
   Input,
   Container,
   Row,
-  Col,
-  Button
+  Col
 } from "reactstrap";
 import {
   changeEducationState
@@ -19,61 +18,28 @@ class EducationEditForm extends React.Component {
     super();
     this.props = props;
     this.state = {
-      from: this.props.from ? this.props.from : null,
-      to: this.props.from ? this.props.to : null,
-      college: this.props.college ? this.props.college : null,
-      degree: this.props.degree ? this.props.degree : null
+      from: this.props.from,
+      to: this.props.from,
+      college: this.props.college,
+      degree: this.props.degree
     };
-    this.changeFrom = this.changeFrom.bind(this);
-    this.changeTo = this.changeTo.bind(this);
-    this.changeCollege = this.changeCollege.bind(this);
-    this.changeDegree = this.changeDegree.bind(this);
-    console.log(props);
+    this.changeProperty = this.changeProperty.bind(this);
   }
 
-  changeFrom(e) {
+  changeProperty(e) {
     this.setState({
-      from: e.target.value
+      [e.target.name]: e.target.value
     });
-    this.props.Changefrom({
+    this.props.change({
       index: this.props.index,
-      property: "from",
-      value: e.target.value
-    });
-  }
-
-  changeTo(e) {
-    this.setState({
-      to: e.target.value
-    });
-    this.props.Changeto({ index: this.props.index, property: "to", value: e.target.value });
-  }
-
-  changeCollege(e) {
-    this.setState({
-      college: e.target.value
-    });
-    this.props.Changecollege({
-      index: this.props.index,
-      property: "college",
-      value: e.target.value
-    });
-  }
-
-  changeDegree(e) {
-    this.setState({
-      degree: e.target.value
-    });
-    this.props.Changedegree({
-      index: this.props.index,
-      property: "degree",
+      property: e.target.name,
       value: e.target.value
     });
   }
 
   render() {
     return (
-      <Container style={{ borderBottom: "1px solid black", padding: "20px" }}>
+      <Container>
         <Form>
           <Row>
             <Col>
@@ -84,19 +50,19 @@ class EducationEditForm extends React.Component {
                   name="college"
                   value={this.state.college}
                   id="college"
-                  onChange={this.changeCollege}
+                  onChange={this.changeProperty}
                 />
               </FormGroup>
             </Col>
             <Col>
               <FormGroup>
-                <Label for="company">Degree</Label>
+                <Label for="degree">Degree</Label>
                 <Input
                   type="text"
                   name="degree"
                   id="degree"
                   value={this.state.degree}
-                  onChange={this.changeDegree}
+                  onChange={this.changeProperty}
                 />
               </FormGroup>
             </Col>
@@ -110,7 +76,7 @@ class EducationEditForm extends React.Component {
                   name="from"
                   id="from"
                   value={this.state.from}
-                  onChange={this.changeFrom}
+                  onChange={this.changeProperty}
                 />
               </FormGroup>
             </Col>
@@ -122,7 +88,7 @@ class EducationEditForm extends React.Component {
                   name="to"
                   id="to"
                   value={this.state.to}
-                  onChange={this.changeTo}
+                  onChange={this.changeProperty}
                 />
               </FormGroup>
             </Col>
@@ -137,16 +103,7 @@ export default connect(
   undefined,
   function(dispatch) {
     return {
-      Changedegree: obj => {
-        dispatch(changeEducationState(obj));
-      },
-      Changecollege: obj => {
-        dispatch(changeEducationState(obj));
-      },
-      Changefrom: obj => {
-        dispatch(changeEducationState(obj));
-      },
-      Changeto: obj => {
+      change:(obj) => {
         dispatch(changeEducationState(obj));
       }
     };

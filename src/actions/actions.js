@@ -40,6 +40,13 @@ export const addGithub = link => {
   };
 };
 
+export const addLinkedin = link => {
+  return {
+    type: "ADD_LINKEDIN",
+    payload: link
+  };
+};
+
 export const addDribble = link => {
   return {
     type: "ADD_DRIBBLE",

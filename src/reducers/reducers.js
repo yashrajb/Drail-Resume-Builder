@@ -18,6 +18,7 @@ let initialState = {
 function Resume(state = initialState, action) {
   switch (action.type) {
     case "ADD_IMAGE":
+    console.log(action.payload);
       return {
         ...state,
         image: action.payload

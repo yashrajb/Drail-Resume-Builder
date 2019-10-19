@@ -6,7 +6,7 @@ const ExperienceForm = props => {
        <h4>{props.position}</h4>
        <h5>{props.company}</h5>
        <h6>{props.from} to {props.to}</h6>
-       <p>{props.desc}</p>
+       <p>{props.responsible}</p>
       </p>
     </div>
   );

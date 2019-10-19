@@ -54,8 +54,9 @@ class EducationForm extends React.Component {
   render() {
     return (
       <Container>
+        <h3>Education</h3>
         {this.props.edu.map((element,index) => {
-          return <EducationEditForm index={index} {...element} />;
+          return <EducationEditForm index={index} key={index} {...element} />;
         })}
         <Form onSubmit={this.onSubmit}>
           <p className="text-danger">{this.state.error}</p>

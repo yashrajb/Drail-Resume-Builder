@@ -6,8 +6,7 @@ import {
   Input,
   Container,
   Row,
-  Col,
-  FormText
+  Col
 } from "reactstrap";
 import { changeExpState } from "../actions/actions";
 import { connect } from "react-redux";

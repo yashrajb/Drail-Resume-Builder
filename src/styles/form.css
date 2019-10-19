@@ -10,3 +10,8 @@ border-radius:0px;
 .form input[type="file"] {
 border:0px;
 }
+
+.builder-image {
+width:300px;
+box-shadow:3px 3px 7px 2px grey;
+}
