@@ -12,6 +12,13 @@ export const addImage = image => {
   };
 };
 
+export const addColor = color => {
+  return {
+    type:"ADD_COLOR",
+    payload:color
+  }
+}
+
 export const addHeadline = headline => {
   return {
     type: "ADD_HEADLINE",
@@ -56,7 +63,7 @@ export const addDribble = link => {
 
 export const addWebsite = link => {
   return {
-    type: "ADD_WEBISTE",
+    type: "ADD_WEBSITE",
     payload: link
   };
 };

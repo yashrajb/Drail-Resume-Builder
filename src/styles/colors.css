@@ -1,0 +1,34 @@
+.color {
+ width:160px;
+ height:40px;
+ box-shadow:3px 3px 7px 3px lightgrey;
+}
+
+.teal {
+background:#4db6ac;
+}
+
+.cyan {
+background:#4dd0e1;
+}
+
+.blue {
+background:#64b5f6;    
+}
+
+.green {
+background:#66bb6a;
+}
+
+.orange {
+background:#ffb74d;
+}
+
+.grey {
+background:#9e9e9e
+}
+
+h3 {
+margin-top:20px;
+color:grey;
+}

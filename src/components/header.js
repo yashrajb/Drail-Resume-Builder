@@ -3,7 +3,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem
 } from "reactstrap";
@@ -17,11 +16,11 @@ const Header = props => {
   return (
     <div>
       <Navbar expand="md">
-        <NavbarBrand>
+        <div className="navbar-brand">
           <Link to="/">
             <span className="logo">Drail</span> Resume Builder
           </Link>
-        </NavbarBrand>
+        </div>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>

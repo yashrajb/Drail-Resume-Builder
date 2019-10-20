@@ -2,6 +2,7 @@ import React from "react";
 import { FormGroup, Label, Input, Container, FormText } from "reactstrap";
 import EducationFom from "./EducationForm";
 import ExpForm from "./ExperienceForm";
+import Colors from "./Color";
 import {
   addName,
   addImage,
@@ -104,6 +105,7 @@ class ResumeForm extends React.Component {
     return (
       <div className="form">
         <Container>
+          <Colors/>
           <FormGroup>
             <Label for="name">Name</Label>
             <Input type="text" name="name" id="name" value={this.props.name} onChange={this.onChangeName}/>
@@ -139,16 +141,10 @@ class ResumeForm extends React.Component {
           <FormGroup>
             <Label for="skills">Skills</Label>
             <Input type="text" name="skills" id="skills" value={this.props.skill} onChange={this.onChangeSkills}/>
-            <FormText className="text-muted">
-              separate skills with comma
-            </FormText>
           </FormGroup>
           <FormGroup>
             <Label for="lang">Languages</Label>
             <Input type="text" name="lang" id="lang" value={this.props.lang} onChange={this.onChangeLang}/>
-            <FormText className="text-muted">
-              separate langauges with comma
-            </FormText>
           </FormGroup>
           <FormGroup>
             <Label for="github">Github</Label>
@@ -164,7 +160,7 @@ class ResumeForm extends React.Component {
           </FormGroup>
           <FormGroup>
             <Label for="lang">Website</Label>
-            <Input type="url" name="website" id="website" value={this.props.lang} onChange={this.onChangeWebsite}/>
+            <Input type="url" name="website" id="website" value={this.props.website} onChange={this.onChangeWebsite}/>
           </FormGroup>
           <EducationFom />
           <ExpForm />
@@ -184,7 +180,7 @@ export default connect(
       image:state.image,
       objective: state.objective,
       skills: state.skills,
-      lang: state.lang.join(""),
+      lang: state.lang,
       github: state.github,
       dribble: state.dribble,
       linkedin: state.linkedin,

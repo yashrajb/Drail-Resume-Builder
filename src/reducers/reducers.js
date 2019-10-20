@@ -1,4 +1,5 @@
 let initialState = {
+  color:"white",
   name: "",
   image: null,
   email: "",
@@ -9,14 +10,19 @@ let initialState = {
   dribble: "",
   linkedin: "",
   website: "",
-  skills: [],
-  lang: [],
+  skills: "",
+  lang: "",
   education: [],
   exp: []
 };
 
 function Resume(state = initialState, action) {
   switch (action.type) {
+    case "ADD_COLOR":
+    return {
+      ...state,
+      color:action.payload
+    }
     case "ADD_IMAGE":
       console.log(action.payload);
       return {
@@ -71,6 +77,11 @@ function Resume(state = initialState, action) {
         ...state,
         name: action.payload
       };
+    case "ADD_LINKEDIN":
+    return {
+      ...state,
+      linkedin:action.payload
+    }
     case "CHANGE_EXP":
       let changedExp = state.exp;
       changedExp[action.payload.index][action.payload.property] =
@@ -89,10 +100,9 @@ function Resume(state = initialState, action) {
         education: changedEducation
       };
     case "ADD_SKILL":
-      let addedSkill = action.payload.split(",");
       return {
         ...state,
-        skills: addedSkill
+        skills:action.payload
       };
     case "ADD_OBJECTIVE":
       return {
@@ -100,10 +110,9 @@ function Resume(state = initialState, action) {
         objective: action.payload
       };
     case "ADD_LANG":
-      let addLang = action.payload.split(",");
       return {
         ...state,
-        lang: addLang
+        lang: action.payload
       };
     default:
       return state;
