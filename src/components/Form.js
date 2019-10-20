@@ -33,6 +33,7 @@ class ResumeForm extends React.Component {
     this.onChangeLinkedin = this.onChangeLinkedin.bind(this); 
     this.onChangeWebsite = this.onChangeWebsite.bind(this);
     this.onChangeImage = this.onChangeImage.bind(this);
+    this.onChangePhone = this.onChangePhone.bind(this);
   }
 
   onChangeName(name) {
@@ -113,6 +114,7 @@ class ResumeForm extends React.Component {
               type="file"
               name="image"
               id="image"
+              accept="image/x-png,image/gif,image/jpeg" 
               onChange={this.onChangeImage}
             />
             <FormText color="muted">choose image for your resume</FormText>

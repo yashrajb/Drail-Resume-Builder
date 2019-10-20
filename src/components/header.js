@@ -5,10 +5,9 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
 } from "reactstrap";
-
+import { Link } from "react-router-dom";
 import "../styles/header.css";
 const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,17 +17,19 @@ const Header = props => {
   return (
     <div>
       <Navbar expand="md">
-        <NavbarBrand href="/"><span className="logo">Drail</span> Resume Builder</NavbarBrand>
+        <NavbarBrand>
+          <Link to="/">
+            <span className="logo">Drail</span> Resume Builder
+          </Link>
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Builder</NavLink>
+              <Link to="/">Builder</Link>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                Your Resume
-              </NavLink>
+              <Link to="/resume">Resume</Link>
             </NavItem>
           </Nav>
         </Collapse>

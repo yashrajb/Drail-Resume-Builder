@@ -11,3 +11,9 @@
 .navbar-brand,.navbar-expand-md .navbar-nav .nav-link,.navbar-brand:hover {
 color:black;
 }
+
+.navbar a,.navbar a:hover {
+   color:black;
+   text-decoration:none;
+   margin-right:10px;
+}
