@@ -2,6 +2,9 @@
   "name": "drail-resume-builder",
   "version": "0.1.0",
   "private": true,
+  "engines":{
+    "node":"10.16.3"
+  },
   "dependencies": {
     "bootstrap": "^4.3.1",
     "react": "^16.10.2",
