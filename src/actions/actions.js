@@ -5,13 +5,6 @@ export const addName = name => {
   };
 };
 
-export const addImage = image => {
-  return {
-    type: "ADD_IMAGE",
-    payload:image
-  };
-};
-
 export const addColor = color => {
   return {
     type:"ADD_COLOR",

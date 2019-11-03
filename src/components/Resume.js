@@ -7,9 +7,9 @@ import Pdf from "react-to-pdf";
 
 const ref = React.createRef();
 const options = {
-  orientation: "landscape",
-  unit: "in",
-  format: [1000, 300]
+  orientation: "potrait",
+  unit: "px",
+  format: [1000,900]
 };
 
 class Resume extends React.Component {
@@ -23,7 +23,7 @@ class Resume extends React.Component {
     const style = {
       resume:{
         boxShadow: "2px 2px 7px 3px grey",
-        padding:"15px",
+        padding:"30px",
         margin:"auto",
         wordBreak: "break-all"
         },
@@ -48,12 +48,13 @@ class Resume extends React.Component {
         <div
           className="resume"
           ref={ref}
-          style={style.resumeBackground}
+          style={{...style.resumeBackground,...style.resume}}
         >
           <header>
                 <h3>{this.props.name.toUpperCase()}</h3>
                 <h5>{this.props.headline}</h5>
           </header>
+          <hr/>
           <section>
             {this.props.objective ?<h3 >Objective</h3> : null}
             <p>{this.props.objective}</p>

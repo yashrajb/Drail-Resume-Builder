@@ -1,11 +1,10 @@
 import React from "react";
-import { FormGroup, Label, Input, Container, FormText } from "reactstrap";
+import { FormGroup, Label, Input, Container} from "reactstrap";
 import EducationFom from "./EducationForm";
 import ExpForm from "./ExperienceForm";
 import Colors from "./Color";
 import {
   addName,
-  addImage,
   addHeadline,
   addDribble,
   addEmail,
@@ -33,7 +32,6 @@ class ResumeForm extends React.Component {
     this.onChangeDribble = this.onChangeDribble.bind(this);
     this.onChangeLinkedin = this.onChangeLinkedin.bind(this); 
     this.onChangeWebsite = this.onChangeWebsite.bind(this);
-    this.onChangeImage = this.onChangeImage.bind(this);
     this.onChangePhone = this.onChangePhone.bind(this);
   }
 
@@ -91,15 +89,6 @@ class ResumeForm extends React.Component {
     website = website.target.value;
     this.props.editWebsite(website);
   }
- 
-  onChangeImage(image){
-    if(image.target.files.length){
-      this.props.editImage(URL.createObjectURL(image.target.files[0]));
-    }else{
-      this.props.editImage(null);
-    }
-
-  }
 
   render() {
     return (
@@ -109,18 +98,6 @@ class ResumeForm extends React.Component {
           <FormGroup>
             <Label for="name">Name</Label>
             <Input type="text" name="name" id="name" value={this.props.name} onChange={this.onChangeName}/>
-          </FormGroup>
-          <FormGroup>
-            <Label for="image">Image</Label>
-            <Input
-              type="file"
-              name="image"
-              id="image"
-              accept="image/x-png,image/gif,image/jpeg" 
-              onChange={this.onChangeImage}
-            />
-            <FormText color="muted">choose image for your resume</FormText>
-            {this.props.image?<img src={this.props.image} alt="author" className="img-responsive builder-image"/>:""}
           </FormGroup>
           <FormGroup>
             <Label for="email">Email</Label>
@@ -192,7 +169,6 @@ export default connect(
       editName: text => dispatch(addName(text)),
       editEmail:email => dispatch(addEmail(email)),
       editPhone:phone => dispatch(addPhone(phone)),
-      editImage: image => dispatch(addImage(image)),
       editHeadline:headline => dispatch(addHeadline(headline)),
       editObjective:objective => dispatch(addObjective(objective)),
       editSkills:skill => dispatch(addSkills(skill)),

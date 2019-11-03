@@ -1,7 +1,6 @@
 let initialState = {
-  color:"white",
+  color: "white",
   name: "",
-  image: null,
   email: "",
   phone: "",
   headline: "",
@@ -19,15 +18,9 @@ let initialState = {
 function Resume(state = initialState, action) {
   switch (action.type) {
     case "ADD_COLOR":
-    return {
-      ...state,
-      color:action.payload
-    }
-    case "ADD_IMAGE":
-      console.log(action.payload);
       return {
         ...state,
-        image: action.payload
+        color: action.payload
       };
     case "ADD_HEADLINE":
       return {
@@ -78,10 +71,10 @@ function Resume(state = initialState, action) {
         name: action.payload
       };
     case "ADD_LINKEDIN":
-    return {
-      ...state,
-      linkedin:action.payload
-    }
+      return {
+        ...state,
+        linkedin: action.payload
+      };
     case "CHANGE_EXP":
       let changedExp = state.exp;
       changedExp[action.payload.index][action.payload.property] =
@@ -102,7 +95,7 @@ function Resume(state = initialState, action) {
     case "ADD_SKILL":
       return {
         ...state,
-        skills:action.payload
+        skills: action.payload
       };
     case "ADD_OBJECTIVE":
       return {
