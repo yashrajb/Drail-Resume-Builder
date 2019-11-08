@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./components/Header";
-import Form from "./components/Form";
+import Header from "./components/Header.js";
+import Form from "components/Form";
 import Resume from "./components/Resume";
 import store from "./store";
 import { Provider } from "react-redux";
