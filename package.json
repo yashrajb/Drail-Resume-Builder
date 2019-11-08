@@ -2,8 +2,8 @@
   "name": "drail-resume-builder",
   "version": "0.1.0",
   "private": true,
-  "engines":{
-    "node":"10.16.3"
+  "engines": {
+    "node": "10.16.3"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -15,13 +15,16 @@
     "react-tag-input": "^6.4.1",
     "react-to-pdf": "0.0.8",
     "reactstrap": "^8.0.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "serve": "^11.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
