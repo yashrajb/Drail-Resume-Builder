@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Container, Label } from "reactstrap";
+import { Container, Label, Row, Col } from "reactstrap";
 import { connect } from "react-redux";
 import { addColor } from "../actions/actions";
 import "../styles/colors.css";
@@ -16,50 +16,46 @@ class Colors extends React.Component {
     return (
       <Container>
         <Label>Color</Label>
-        <Table>
-          <tbody>
-            <tr>
-              <td>
-                <div
-                  className="color teal"
-                  onClick={this.clickonColor.bind(this, "#4db6ac")}
-                ></div>
-              </td>
-              <td>
-                <div
-                  className="color cyan"
-                  onClick={this.clickonColor.bind(this, "#4dd0e1")}
-                ></div>
-              </td>
-              <td>
-                <div
-                  className="color blue"
-                  onClick={this.clickonColor.bind(this, "#64b5f6")}
-                ></div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div
-                  className="color green"
-                  onClick={this.clickonColor.bind(this, "#66bb6a")}
-                ></div>
-              </td>
-              <td>
-                <div
-                  className="color orange"
-                  onClick={this.clickonColor.bind(this, "#ffb74d")}
-                ></div>
-              </td>
-              <td>
-                <div
-                  className="color grey"
-                  onClick={this.clickonColor.bind(this, "#9e9e9e")}
-                ></div>
-              </td>
-            </tr>
-          </tbody>
-        </Table>
+        <Row>
+          <Col md="3" xl="3" lg="3">
+            <div
+              className="color teal"
+              onClick={this.clickonColor.bind(this, "#4db6ac")}
+            ></div>
+          </Col>
+          <Col md="3" xl="3" lg="3">
+            <div
+              className="color cyan"
+              onClick={this.clickonColor.bind(this, "#4dd0e1")}
+            ></div>
+          </Col>
+          <Col md="3" xl="3" lg="3">
+            <div
+              className="color blue"
+              onClick={this.clickonColor.bind(this, "#64b5f6")}
+            ></div>
+          </Col>
+        </Row>
+        <Row>
+          <Col md="3" lg="3" xl="3">
+            <div
+              className="color green"
+              onClick={this.clickonColor.bind(this, "#66bb6a")}
+            ></div>
+          </Col>
+          <Col md="3" lg="3" xl="3">
+            <div
+              className="color orange"
+              onClick={this.clickonColor.bind(this, "#ffb74d")}
+            ></div>
+          </Col>
+          <Col md="3" lg="3" xl="3">
+            <div
+              className="color grey"
+              onClick={this.clickonColor.bind(this, "#9e9e9e")}
+            ></div>
+          </Col>
+        </Row>
       </Container>
     );
   }
