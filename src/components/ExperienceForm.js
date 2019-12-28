@@ -16,7 +16,6 @@ class ExperienceForm extends React.Component {
   constructor(props) {
     super();
     this.props = props;
-    console.log(this.props);
     this.state = {
       error: null
     };
