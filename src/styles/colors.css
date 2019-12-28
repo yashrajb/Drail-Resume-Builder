@@ -1,29 +1,41 @@
 .color {
- width:160px;
- height:40px;
- box-shadow:3px 3px 7px 3px lightgrey;
+  width: 160px;
+  height: 40px;
+  box-shadow: 3px 3px 7px 3px lightgrey;
 }
 
 .teal {
-background:#4db6ac;
+  background: #4db6ac;
 }
 
 .cyan {
-background:#4dd0e1;
+  background: #4dd0e1;
 }
 
 .blue {
-background:#64b5f6;    
+  background: #64b5f6;
 }
 
 .green {
-background:#66bb6a;
+  background: #66bb6a;
 }
 
 .orange {
-background:#ffb74d;
+  background: #ffb74d;
 }
 
 .grey {
-background:#9e9e9e
+  background: #9e9e9e;
+}
+
+@media (max-width: 575.98px) {
+  .color {
+    width: 100px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .color {
+    width: 100px;
+  }
 }
