@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./Components/Header";
-import Form from "./Components/Form";
-import Resume from "./Components/Resume";
+import Header from "./components/header";
+import Form from "./components/Form";
+import Resume from "./components/Resume";
 import store from "./store";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
