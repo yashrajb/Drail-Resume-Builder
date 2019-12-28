@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Collapse,
   Navbar,
@@ -9,9 +9,6 @@ import {
 import { Link } from "react-router-dom";
 import "../styles/header.css";
 const Header = props => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div>
@@ -21,8 +18,8 @@ const Header = props => {
             <span className="logo">Drail</span> Resume Builder
           </Link>
         </div>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
+        <NavbarToggler/>
+        <Collapse isOpen={true} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
               <Link to="/">Builder</Link>
