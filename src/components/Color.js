@@ -3,7 +3,7 @@ import { Container, Label, Row, Col } from "reactstrap";
 import { connect } from "react-redux";
 import { addColor } from "../actions/actions";
 import "../styles/colors.css";
-
+//This is color component
 class Colors extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +11,7 @@ class Colors extends React.Component {
   }
   clickonColor(color) {
     this.props.selectColor(color);
+    console.log(color);
   }
   render() {
     return (
