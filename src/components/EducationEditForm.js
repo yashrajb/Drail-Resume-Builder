@@ -1,39 +1,47 @@
 import React from "react";
-import {
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Container,
-  Row,
-  Col
-} from "reactstrap";
-import {
-  changeEducationState
-} from "../actions/actions";
+import { Form, FormGroup, Label, Input, Container, Row, Col } from "reactstrap";
+import { changeEducationState } from "../actions/actions";
 import { connect } from "react-redux";
 class EducationEditForm extends React.Component {
   constructor(props) {
-    
     super();
     this.props = props;
     this.state = {
       from: this.props.from,
-      to: this.props.from,
+      to: this.props.to,
       college: this.props.college,
-      degree: this.props.degree
+      present:this.props.present,
+      degree: this.props.degree,
+      error:null
     };
     this.changeProperty = this.changeProperty.bind(this);
   }
 
   changeProperty(e) {
+    var val = e.target.value;
+    if(e.target.name==="present"){
+      if(this.state.to){
+        return this.setState({
+          error:"You can either select \"To\" or \"Present\""
+        });
+      }
+      val = e.target.checked
+    }
+    if(e.target.name==="to"){
+      if(this.state.present){
+        return this.setState({
+          error:"You can either select \"To\" or \"Present\""
+        });
+      }
+    }
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: val,
+      error:null
     });
     this.props.change({
       index: this.props.index,
       property: e.target.name,
-      value: e.target.value
+      value: val
     });
   }
 
@@ -41,6 +49,7 @@ class EducationEditForm extends React.Component {
     return (
       <Container>
         <Form>
+          <p class="text-danger">{this.state.error}</p>
           <Row>
             <Col>
               <FormGroup>
@@ -92,6 +101,21 @@ class EducationEditForm extends React.Component {
                 />
               </FormGroup>
             </Col>
+            <Col>
+              <FormGroup className="formgroup">
+                <FormGroup check>
+                  <Label check>
+                    <Input
+                      type="checkbox"
+                      name="present"
+                      checked={this.state.present}
+                      onChange={this.changeProperty}
+                    />{" "}
+                      Present
+                  </Label>
+                </FormGroup>
+              </FormGroup>
+            </Col>
           </Row>
         </Form>
       </Container>
@@ -103,7 +127,7 @@ export default connect(
   undefined,
   function(dispatch) {
     return {
-      change:(obj) => {
+      change: obj => {
         dispatch(changeEducationState(obj));
       }
     };

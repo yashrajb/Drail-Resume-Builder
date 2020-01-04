@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Container,
-  Row,
-  Col
-} from "reactstrap";
+import { Form, FormGroup, Label, Input, Container, Row, Col } from "reactstrap";
 import { changeExpState } from "../actions/actions";
 import { connect } from "react-redux";
 class ExperienceEditForm extends React.Component {
@@ -15,22 +7,43 @@ class ExperienceEditForm extends React.Component {
     super();
     this.props = props;
     this.state = {
-      from:this.props.from,
-      to:this.props.to,
-      company:this.props.company,
-      position:this.props.position,
-      responsible:this.props.responsible,
-      error:null
-    }
+      from: this.props.from,
+      to: this.props.to,
+      present:this.props.present,
+      company: this.props.company,
+      position: this.props.position,
+      responsible: this.props.responsible,
+      error: null
+    };
     this.changeProperty = this.changeProperty.bind(this);
   }
 
   changeProperty(e) {
-      this.setState({
-        [e.target.name]:e.target.value,
-        error:null
-      });
-      this.props.change({index:this.props.index,property:e.target.name,value:e.target.value});
+    var val = e.target.value;
+    if (e.target.name === "present") {
+      if (this.state.to) {
+        return this.setState({
+          error: 'You can either select "To" or "Present"'
+        });
+      }
+      val = e.target.checked;
+    }
+    if (e.target.name === "to") {
+      if (this.state.present) {
+        return this.setState({
+          error: 'You can either select "To" or "Present"'
+        });
+      }
+    }
+    this.setState({
+      [e.target.name]: val,
+      error: null
+    });
+    this.props.change({
+      index: this.props.index,
+      property: e.target.name,
+      value: val
+    });
   }
 
   render() {
@@ -89,6 +102,21 @@ class ExperienceEditForm extends React.Component {
                 />
               </FormGroup>
             </Col>
+            <Col>
+              <FormGroup className="formgroup">
+                <FormGroup check>
+                  <Label check>
+                    <Input
+                      type="checkbox"
+                      name="present"
+                      checked={this.state.present}
+                      onChange={this.changeProperty}
+                    />{" "}
+                      Present
+                  </Label>
+                </FormGroup>
+              </FormGroup>
+            </Col>
           </Row>
           <FormGroup>
             <Label for="responsible">Responsibility</Label>
@@ -111,9 +139,9 @@ export default connect(
   undefined,
   function(dispatch) {
     return {
-     change:(obj) => {
-       dispatch(changeExpState(obj));
-     }
+      change: obj => {
+        dispatch(changeExpState(obj));
+      }
     };
   }
 )(ExperienceEditForm);

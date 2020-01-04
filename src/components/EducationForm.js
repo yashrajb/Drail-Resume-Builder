@@ -12,13 +12,16 @@ import {
 import { addEducation } from "../actions/actions";
 import { connect } from "react-redux";
 import EducationEditForm from "./EducationEditForm";
+import "../styles/educationForm.css";
 class EducationForm extends React.Component {
   constructor(props) {
     super();
     this.props = props;
     this.onSubmit = this.onSubmit.bind(this);
+    this.clickOnCheck = this.clickOnCheck.bind(this);
     this.state = {
-      error: null
+      error: null,
+      present:false
     };
   }
 
@@ -26,9 +29,20 @@ class EducationForm extends React.Component {
     e.preventDefault();
     var from = e.target.from.value;
     var to = e.target.to.value;
+    var present = this.state.present;
     var college = e.target.college.value;
     var degree = e.target.degree.value;
-    if (from && to && college && degree) {
+    if(present && to){
+      return this.setState({
+        error:"You can either select \"To\" or \"Present\""
+      })
+    }
+    if(present===false && !to){
+      return this.setState({
+        error:"To or Present is required"
+      })
+    }
+    if (from && college && degree) {
       this.setState(state => {
         return {
           error: null
@@ -37,12 +51,16 @@ class EducationForm extends React.Component {
       var obj = {
         from,
         to,
+        present,
         college,
         degree
       };
       this.props.addEducation(obj);
       e.target.reset();
-    }else {
+      this.setState({
+        present:false
+      })
+    } else {
       this.setState(state => {
         return {
           error: "All Fields are Required"
@@ -51,11 +69,18 @@ class EducationForm extends React.Component {
     }
   }
 
+  clickOnCheck(e){
+   var val = e.target.checked;
+   this.setState({
+     present:val
+   });
+  }
+
   render() {
     return (
       <Container>
         <h3>Education</h3>
-        {this.props.edu.map((element,index) => {
+        {this.props.edu.map((element, index) => {
           return <EducationEditForm index={index} key={index} {...element} />;
         })}
         <Form onSubmit={this.onSubmit}>
@@ -85,6 +110,15 @@ class EducationForm extends React.Component {
               <FormGroup>
                 <Label for="to">To</Label>
                 <Input type="date" name="to" id="to" />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup className="formgroup">
+                <FormGroup check>
+                  <Label check>
+                    <Input type="checkbox" name="present" onChange={this.clickOnCheck}/> <span>Present</span>
+                  </Label>
+                </FormGroup>
               </FormGroup>
             </Col>
           </Row>
