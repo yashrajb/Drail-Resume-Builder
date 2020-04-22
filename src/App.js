@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route path="/" exact>
+          <Route path="/drail-resume-builder" exact>
             <Form />
           </Route>
           <Route path="/resume" exact>
