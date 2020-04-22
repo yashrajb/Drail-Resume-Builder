@@ -5,10 +5,11 @@ import Resume from "./components/Resume";
 import Footer from "./components/Footer";
 import store from "./store";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route,HashRouter } from "react-router-dom";
 function App() {
   return (
     <Provider store={store}>
+    <HashRouter basename="/">
       <Router>
         <Header />
         <Switch>
@@ -21,6 +22,7 @@ function App() {
         </Switch>
         <Footer/>
       </Router>
+      </HashRouter>
     </Provider>
   );
 }
