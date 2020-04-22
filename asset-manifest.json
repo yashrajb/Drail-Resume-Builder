@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/drail-resume-builder/static/css/main.4c427d24.chunk.css",
+    "main.js": "/drail-resume-builder/static/js/main.317dc4a7.chunk.js",
+    "main.js.map": "/drail-resume-builder/static/js/main.317dc4a7.chunk.js.map",
+    "runtime-main.js": "/drail-resume-builder/static/js/runtime-main.31262196.js",
+    "runtime-main.js.map": "/drail-resume-builder/static/js/runtime-main.31262196.js.map",
+    "static/css/2.69121389.chunk.css": "/drail-resume-builder/static/css/2.69121389.chunk.css",
+    "static/js/2.bcbbef30.chunk.js": "/drail-resume-builder/static/js/2.bcbbef30.chunk.js",
+    "static/js/2.bcbbef30.chunk.js.map": "/drail-resume-builder/static/js/2.bcbbef30.chunk.js.map",
+    "index.html": "/drail-resume-builder/index.html",
+    "precache-manifest.b9703b083d90cae56de62f412189ff1b.js": "/drail-resume-builder/precache-manifest.b9703b083d90cae56de62f412189ff1b.js",
+    "service-worker.js": "/drail-resume-builder/service-worker.js",
+    "static/css/2.69121389.chunk.css.map": "/drail-resume-builder/static/css/2.69121389.chunk.css.map",
+    "static/css/main.4c427d24.chunk.css.map": "/drail-resume-builder/static/css/main.4c427d24.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.31262196.js",
+    "static/css/2.69121389.chunk.css",
+    "static/js/2.bcbbef30.chunk.js",
+    "static/css/main.4c427d24.chunk.css",
+    "static/js/main.317dc4a7.chunk.js"
+  ]
+}
