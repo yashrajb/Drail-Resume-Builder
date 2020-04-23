@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/drail-resume-builder/precache-manifest.9b325677777f3e5bd70e6fd9a1e2eb80.js"
+  "/drail-resume-builder/precache-manifest.a6541886e3fa68e6df19880c62baaef3.js"
 );
 
 self.addEventListener('message', (event) => {
