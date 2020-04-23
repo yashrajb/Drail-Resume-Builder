@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Switch, Route,HashRouter } from "react-router-
 function App() {
   return (
     <Provider store={store}>
-      <Router basename={process.env.PUBLIC_URL+"/drail-resume-builder"}>
+      <Router basename={process.env.PUBLIC_URL+"/drail-resume-builder/"}>
         <Header />
         <Switch>
           <Route path="/" exact>
