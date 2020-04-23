@@ -9,11 +9,10 @@ import { BrowserRouter as Router, Switch, Route,HashRouter } from "react-router-
 function App() {
   return (
     <Provider store={store}>
-    <HashRouter basename="/">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Header />
         <Switch>
-          <Route path="/drail-resume-builder" exact>
+          <Route path="/" exact>
             <Form />
           </Route>
           <Route path="/resume" exact>
@@ -22,7 +21,6 @@ function App() {
         </Switch>
         <Footer/>
       </Router>
-      </HashRouter>
     </Provider>
   );
 }
