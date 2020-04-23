@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/drail-resume-builder/static/css/main.4c427d24.chunk.css",
-    "main.js": "/drail-resume-builder/static/js/main.3c3709f6.chunk.js",
-    "main.js.map": "/drail-resume-builder/static/js/main.3c3709f6.chunk.js.map",
+    "main.js": "/drail-resume-builder/static/js/main.86337548.chunk.js",
+    "main.js.map": "/drail-resume-builder/static/js/main.86337548.chunk.js.map",
     "runtime-main.js": "/drail-resume-builder/static/js/runtime-main.31262196.js",
     "runtime-main.js.map": "/drail-resume-builder/static/js/runtime-main.31262196.js.map",
     "static/css/2.69121389.chunk.css": "/drail-resume-builder/static/css/2.69121389.chunk.css",
-    "static/js/2.bcbbef30.chunk.js": "/drail-resume-builder/static/js/2.bcbbef30.chunk.js",
-    "static/js/2.bcbbef30.chunk.js.map": "/drail-resume-builder/static/js/2.bcbbef30.chunk.js.map",
+    "static/js/2.d8f3fe82.chunk.js": "/drail-resume-builder/static/js/2.d8f3fe82.chunk.js",
+    "static/js/2.d8f3fe82.chunk.js.map": "/drail-resume-builder/static/js/2.d8f3fe82.chunk.js.map",
     "index.html": "/drail-resume-builder/index.html",
-    "precache-manifest.644a607e2f1154e4bedd57f36624ec0e.js": "/drail-resume-builder/precache-manifest.644a607e2f1154e4bedd57f36624ec0e.js",
+    "precache-manifest.9b325677777f3e5bd70e6fd9a1e2eb80.js": "/drail-resume-builder/precache-manifest.9b325677777f3e5bd70e6fd9a1e2eb80.js",
     "service-worker.js": "/drail-resume-builder/service-worker.js",
     "static/css/2.69121389.chunk.css.map": "/drail-resume-builder/static/css/2.69121389.chunk.css.map",
     "static/css/main.4c427d24.chunk.css.map": "/drail-resume-builder/static/css/main.4c427d24.chunk.css.map"
@@ -17,8 +17,8 @@
   "entrypoints": [
     "static/js/runtime-main.31262196.js",
     "static/css/2.69121389.chunk.css",
-    "static/js/2.bcbbef30.chunk.js",
+    "static/js/2.d8f3fe82.chunk.js",
     "static/css/main.4c427d24.chunk.css",
-    "static/js/main.3c3709f6.chunk.js"
+    "static/js/main.86337548.chunk.js"
   ]
 }

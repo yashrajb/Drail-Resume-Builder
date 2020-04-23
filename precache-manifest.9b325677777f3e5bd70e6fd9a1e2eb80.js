@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "29d28b7d30c160195728df5b45002196",
+    "revision": "349b77c0e75d46cb2e21afb5f1a3711a",
     "url": "/drail-resume-builder/index.html"
   },
   {
-    "revision": "1673815edbdfcd00771c",
+    "revision": "e8af6511d6094f086aa5",
     "url": "/drail-resume-builder/static/css/2.69121389.chunk.css"
   },
   {
-    "revision": "c1c156fb20976fd7c8d5",
+    "revision": "af4699d24bbac2e1357a",
     "url": "/drail-resume-builder/static/css/main.4c427d24.chunk.css"
   },
   {
-    "revision": "1673815edbdfcd00771c",
-    "url": "/drail-resume-builder/static/js/2.bcbbef30.chunk.js"
+    "revision": "e8af6511d6094f086aa5",
+    "url": "/drail-resume-builder/static/js/2.d8f3fe82.chunk.js"
   },
   {
-    "revision": "c1c156fb20976fd7c8d5",
-    "url": "/drail-resume-builder/static/js/main.3c3709f6.chunk.js"
+    "revision": "af4699d24bbac2e1357a",
+    "url": "/drail-resume-builder/static/js/main.86337548.chunk.js"
   },
   {
     "revision": "d345008f0cbe56a8e89a",
