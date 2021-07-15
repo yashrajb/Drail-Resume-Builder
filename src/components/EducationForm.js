@@ -7,7 +7,7 @@ import {
   Container,
   Row,
   Col,
-  Button
+  Button,
 } from "reactstrap";
 import { addEducation } from "../actions/actions";
 import { connect } from "react-redux";
@@ -21,8 +21,23 @@ class EducationForm extends React.Component {
     this.clickOnCheck = this.clickOnCheck.bind(this);
     this.state = {
       error: null,
-      present:false
+      present: false,
+      today: this.GetFormattedDate(new Date()),
+      to: new Date(),
+      isPresent: false,
     };
+    console.log(this.state);
+  }
+
+  GetFormattedDate(date) {
+    var dd = date.getDate();
+    var mm = date.getMonth() + 1; //January is 0!
+    var yyyy = date.getFullYear();
+    if (dd < 10) dd = "0" + dd;
+
+    if (mm < 10) mm = "0" + mm;
+
+    return yyyy + "-" + mm + "-" + dd;
   }
 
   onSubmit(e) {
@@ -32,20 +47,20 @@ class EducationForm extends React.Component {
     var present = this.state.present;
     var college = e.target.college.value;
     var degree = e.target.degree.value;
-    if(present && to){
+    if (present && to) {
       return this.setState({
-        error:"You can either select \"To\" or \"Present\""
-      })
+        error: 'You can either select "To" or "Present"',
+      });
     }
-    if(present===false && !to){
+    if (present === false && !to) {
       return this.setState({
-        error:"To or Present is required"
-      })
+        error: "To or Present is required",
+      });
     }
     if (from && college && degree) {
-      this.setState(state => {
+      this.setState((state) => {
         return {
-          error: null
+          error: null,
         };
       });
       var obj = {
@@ -53,27 +68,28 @@ class EducationForm extends React.Component {
         to,
         present,
         college,
-        degree
+        degree,
       };
       this.props.addEducation(obj);
       e.target.reset();
       this.setState({
-        present:false
-      })
+        present: false,
+      });
     } else {
-      this.setState(state => {
+      this.setState((state) => {
         return {
-          error: "All Fields are Required"
+          error: "All Fields are Required",
         };
       });
     }
   }
 
-  clickOnCheck(e){
-   var val = e.target.checked;
-   this.setState({
-     present:val
-   });
+  clickOnCheck(e) {
+    var val = e.target.checked;
+    this.setState({
+      present: val,
+    });
+    this.setState({ isPresent: val });
   }
 
   render() {
@@ -103,20 +119,40 @@ class EducationForm extends React.Component {
             <Col>
               <FormGroup>
                 <Label for="from">From</Label>
-                <Input type="date" name="from" id="from" />
+                <Input
+                  type="date"
+                  name="from"
+                  id="from"
+                  onChange={(e) => {
+                    this.setState({ to: new Date(e.target.value) });
+                  }}
+                  max={this.state.today}
+                />
               </FormGroup>
             </Col>
             <Col>
               <FormGroup>
                 <Label for="to">To</Label>
-                <Input type="date" name="to" id="to" />
+                <Input
+                  type="date"
+                  name="to"
+                  id="to"
+                  // max={this.state.today}
+                  min={this.GetFormattedDate(this.state.to)}
+                  disabled={this.state.present}
+                />
               </FormGroup>
             </Col>
             <Col>
               <FormGroup className="formgroup">
                 <FormGroup check>
                   <Label check>
-                    <Input type="checkbox" name="present" onChange={this.clickOnCheck}/> <span>Present</span>
+                    <Input
+                      type="checkbox"
+                      name="present"
+                      onChange={this.clickOnCheck}
+                    />{" "}
+                    <span>Present</span>
                   </Label>
                 </FormGroup>
               </FormGroup>
@@ -130,16 +166,16 @@ class EducationForm extends React.Component {
 }
 
 export default connect(
-  function(state) {
+  function (state) {
     return {
-      edu: state.education
+      edu: state.education,
     };
   },
-  function(dispatch) {
+  function (dispatch) {
     return {
-      addEducation: exp => {
+      addEducation: (exp) => {
         dispatch(addEducation(exp));
-      }
+      },
     };
   }
 )(EducationForm);
