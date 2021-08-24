@@ -7,7 +7,7 @@ import {
   Container,
   Row,
   Col,
-  Button
+  Button,
 } from "reactstrap";
 import { addExp } from "../actions/actions";
 import { connect } from "react-redux";
@@ -18,11 +18,27 @@ class ExperienceForm extends React.Component {
     this.props = props;
     this.state = {
       error: null,
-      present:false
+      present: false,
+      // additional validation
+      today: this.GetFormattedDate(new Date()),
+      to: new Date(),
+      isPresent: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.clickOnCheck = this.clickOnCheck.bind(this);
   }
+
+  GetFormattedDate(date) {
+    var dd = date.getDate();
+    var mm = date.getMonth() + 1; //January is 0!
+    var yyyy = date.getFullYear();
+    if (dd < 10) dd = "0" + dd;
+
+    if (mm < 10) mm = "0" + mm;
+
+    return yyyy + "-" + mm + "-" + dd;
+  }
+
   onSubmit(e) {
     e.preventDefault();
     var from = e.target.from.value;
@@ -31,20 +47,20 @@ class ExperienceForm extends React.Component {
     var position = e.target.position.value;
     var company = e.target.company.value;
     var responsible = e.target.responsible.value;
-    if(present && to){
+    if (present && to) {
       return this.setState({
-        error:"You can either select \"To\" or \"Present\""
-      })
+        error: 'You can either select "To" or "Present"',
+      });
     }
-    if(present===false && !to){
+    if (present === false && !to) {
       return this.setState({
-        error:"To or Present is required"
-      })
+        error: "To or Present is required",
+      });
     }
     if (from && position && company && responsible) {
-      this.setState(state => {
+      this.setState((state) => {
         return {
-          error: null
+          error: null,
         };
       });
       this.props.add({
@@ -53,29 +69,32 @@ class ExperienceForm extends React.Component {
         present,
         position,
         company,
-        responsible
+        responsible,
       });
       e.target.reset();
     } else {
-      this.setState(state => {
+      this.setState((state) => {
         return {
-          error: "All Fields are Required"
+          error: "All Fields are Required",
         };
       });
     }
   }
-  clickOnCheck(e){
+
+  clickOnCheck(e) {
     var val = e.target.checked;
     this.setState({
-      present:val
+      present: val,
+      isPresent: val
     });
-   }
+  }
+
   render() {
     return (
       <Container>
         <h3>Experience</h3>
-        {this.props.exp.map((element,index) => {
-          return <ExperienceEditForm index={index} {...element} key={index}/>;
+        {this.props.exp.map((element, index) => {
+          return <ExperienceEditForm index={index} {...element} key={index} />;
         })}
         <Form onSubmit={this.onSubmit}>
           <p className="text-danger">{this.state.error}</p>
@@ -97,20 +116,39 @@ class ExperienceForm extends React.Component {
             <Col>
               <FormGroup>
                 <Label for="from">From</Label>
-                <Input type="date" name="from" id="from" />
+                <Input
+                  type="date"
+                  name="from"
+                  id="from"
+                  onChange={(e) => {
+                    this.setState({ to: new Date(e.target.value) });
+                  }}
+                  max={this.state.today}
+                />
               </FormGroup>
             </Col>
             <Col>
               <FormGroup>
                 <Label for="to">To</Label>
-                <Input type="date" name="to" id="to" />
+                <Input
+                  type="date"
+                  name="to"
+                  id="to"
+                  min={this.GetFormattedDate(this.state.to)}
+                  disabled={this.state.present}
+                />
               </FormGroup>
             </Col>
             <Col>
               <FormGroup className="formgroup">
                 <FormGroup check>
                   <Label check>
-                    <Input type="checkbox" name="present" onChange={this.clickOnCheck}/> <span>Present</span>
+                    <Input
+                      type="checkbox"
+                      name="present"
+                      onChange={this.clickOnCheck}
+                    />{" "}
+                    <span>Present</span>
                   </Label>
                 </FormGroup>
               </FormGroup>
@@ -133,16 +171,16 @@ class ExperienceForm extends React.Component {
 }
 
 export default connect(
-  function(state) {
+  function (state) {
     return {
-      exp: state.exp
+      exp: state.exp,
     };
   },
-  function(dispatch) {
+  function (dispatch) {
     return {
-      add: exp => {
+      add: (exp) => {
         dispatch(addExp(exp));
-      }
+      },
     };
   }
 )(ExperienceForm);
