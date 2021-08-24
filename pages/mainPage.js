@@ -8,7 +8,7 @@ class mainPage {
         this.name = Selector('input[id=name]')
         this.email = Selector('input[id=email]')
         this.phone = Selector('input[id=phone]')
-        this.headline = Selector('input[id=headline]')
+        this.headline = Selector('textarea[id=headline]')
         this.objective = Selector('textarea[id=objective]')
         this.skills = Selector('input[id=skills]')
         this.languages = Selector('input[id=lang]')
