@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "start-sw": "http-server ./build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "test-resume": "testcafe chrome ./tests/E2ETest.js"
   },
   "eslintConfig": {
     "extends": "react-app"
